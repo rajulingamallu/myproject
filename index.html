@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>form</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container"><br>
+		
+		<div class="col-lg-8 m-auto d-block">
+            <h1 class="text-dark text-center  bg-success"> Reg Form In JavaScript </h1>
+			
+			<form action="#"  onsubmit="return validation()" class="bg-light">
+				
+
+				<div class="form-group">
+					<label for="user" class="font-weight-bold"> Username: <sup>*</sup></label>
+					<input type="text" name="user" class="form-control" id="user" placeholder="username" autocomplete="off">
+					<span id="username" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Password:<sup>*</sup> </label>
+					<input type="text" name="pass" class="form-control" id="pass" autocomplete="off">
+					<span id="passwords" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Confirm Password:<sup>*</sup> </label>
+					<input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off">
+					<span id="confrmpass" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Mobile Number:<sup>*</sup> </label>
+					<input type="text" name="mobile" class="form-control" id="mobileNumber" autocomplete="off"/>
+					<span id="mobileno" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Email: <sup>*</sup></label>
+					<input type="text" name="email" class="form-control" id="emails" autocomplete="off" autofocus="off">
+					<span id="emailids" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<input type="submit" name="submit" value="submit" class="btn btn-success" 	autocomplete="off">
+
+
+			</form><br><br>
+
+
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		
+
+		function validation(){
+
+			var user = document.getElementById('user');
+			var pass = document.getElementById('pass');
+			var confirmpass = document.getElementById('conpass');
+			var mobileNumber = document.getElementById('mobileNumber');
+			var emails = document.getElementById('emails');
+            
+            var status=true;
+
+
+
+
+			if(user.value == ""){
+				document.getElementById('username').innerHTML =" ** Please fill the username field"
+                user.style.border="2px solid red";
+            
+				status=false;
+			}
+			else if((user.value.length <= 2) || (user.value.length > 20)) {
+				document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20"
+                user.style.border="2px solid red";
+               
+				status=false;	
+			}
+			  else if(!isNaN(user.value)){
+				document.getElementById('username').innerHTML =" ** only characters are allowed"
+                user.style.border="2px solid red";
+               
+				status=false;
+			}
+            else{
+                
+                user.style.border="2px solid #22ab72";
+                status=false;
+            }
+            
+
+
+
+
+
+
+			if(pass.value == ""){
+				document.getElementById('passwords').innerHTML =" ** Please fill the password field"
+               
+                pass.style.border="2px solid red";
+				status=false;
+			}
+			if((pass.value.length <= 5) || (pass.value.length > 20)) {
+				document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  5 and 20";
+                
+                pass.style.border="2px solid red";
+				status=false;	
+			}
+            
+
+			if(pass.value!=confirmpass.value){
+				document.getElementById('confrmpass').innerHTML =" ** Password does not match the confirm password";
+               
+                pass.style.border="2px solid red";
+				status=false;
+			}
+            
+
+
+			if(confirmpass.value == ""){
+				document.getElementById('confrmpass').innerHTML =" ** Please fill the confirmpassword field";
+               
+                confirmpass.style.border="2px solid red";
+				status=false;
+			}
+
+            else{
+                pass.style.border="2px solid #22ab72"
+             }
+
+
+			if(mobileNumber.value == ""){
+				document.getElementById('mobileno').innerHTML =" ** Please fill the mobile NUmber field";
+ 
+                mobileNumber.style.border="2px solid red";
+
+				status=false;
+			}
+			if(isNaN(mobileNumber.value)){
+				document.getElementById('mobileno').innerHTML =" ** user must write digits only not characters";
+				status=false;
+			}
+			if(mobileNumber.value.length!=10){
+				document.getElementById('mobileno').innerHTML =" ** Mobile Number must be 10 digits only";
+                
+                mobileNumber.style.border="2px solid red";
+				status=false;
+			}
+
+            else{
+                mobileNumber.style.border="2px solid #22ab72";
+            }
+
+			if(emails.value== ""){
+				document.getElementById('emailids').innerHTML =" ** Please fill the email id` field";
+				status=false;
+			}
+			if(emails.value.indexOf('@') <= 0 ){
+				document.getElementById('emailids').innerHTML =" ** @ Invalid Position"
+                
+                emails.style.border="2px solid red"
+				status=false;
+			}
+
+			if((emails.value.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+                document.getElementById('emailids').innerHTML =" **Invalid id "
+                
+                emails.style.border="2px solid red"
+				status=false;
+			}
+            else{
+                emails.style.border="2px solid #22ab72"   
+            }
+            return status
+		}
+
+	</script>
+
+</body>
+</html>
