@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Form</title>
+    <!-- bootstrap css-->
+    <link rel="stylesheet" href="C:\Users\rajul\OneDrive\Desktop\BOOTSTRAP\bootstrap-5.2.3-dist\css\bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.css">
+    <!--bootstrap icon-->
+    <link rel="stylesheet" href="C:\Users\rajul\OneDrive\Desktop\BOOTSTRAP\bootstrap-5.2.3-dist\icons\bootstrap-icons.css">
+    <!--js-->
+    <script src="Formbasicex7cpwd.js"></script>
+    <style>
+   #demo{
+       padding-top: 100px;
+
+   }
+   
+
+    </style>
+</head>
+<body>
+    <div class="container " >
+
+      <div class="col-lg-7 m-auto d-block " id="demo">
+        <div class="bg-light">
+        <h3 class="text-center mt-50px text-warning">welcome to Javasrcipt</h3>
+
+       <!--send to server by using <form action="server.php/ server.py/ server.jsp..."-->  
+     <form onsubmit="return formvalidations()"action="#">   
+
+        <div class="mb-3">
+            <label class="form-label">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+            <span id="pwd_span" ></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Confirm Password:</label>
+            <input type="password" class="form-control" id="cpwd">
+            <span id="cpwd_span" ></span>
+      </div>
+        <div class="mt-4 ">
+          <button class="btn btn-primary w-100"  type="submit">Send</button>
+      </div>
+      </form>
+       </div>
+      </div>
+       </div>
+      </div>
